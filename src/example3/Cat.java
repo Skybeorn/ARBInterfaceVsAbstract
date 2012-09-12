@@ -1,10 +1,6 @@
 package example3;
 
-/**
- * This is a concrete implementation of the Animal interface contract.
- * @author jlombardo
- */
-public class Cat implements Animal {
+public final class Cat implements Animal {
     private int age;
     private static int lives = 9;
     private static final int MIN_AGE = 0;
@@ -12,13 +8,15 @@ public class Cat implements Animal {
     private static final String AGE_ERR_MSG = "realAge must be a value between "
             + MIN_AGE + " and " + MAX_AGE;
 
-    // Notice how this method is implemented differently in Dog
-    // No chance of inappropriate or bad code being inherited here.
+
+    public Cat(int realAge){
+     setAge(realAge);          
+    }
+    
     public void speak() {
         System.out.println("I'm a cat an I MEOW!");
     }
-
-    // These next two methods are duplicated in Dog
+    
     
     public int getAge() {
         return age;
@@ -30,7 +28,6 @@ public class Cat implements Animal {
         }
     }
 
-    // unique to Cat
     public void sacrificeOneLife() {
         lives--;
     }

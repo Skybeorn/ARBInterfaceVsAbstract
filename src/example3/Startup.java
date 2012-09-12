@@ -5,11 +5,13 @@ public class Startup {
     public static void main(String[] args) {
         
         // Create an array of animals so we can process them as a group
-        Animal[] animals = { new Dog(), new Cat(), new Pig() };
+        Animal[] animals = { new Dog(6), new Cat(7), new Pig(8) };
         
         // Polymorphism -- This only works for common behaviors (methods)!
         for(Animal a : animals) {
             a.speak();
+            System.out.println( a.getAge());
+           
         }
 
 

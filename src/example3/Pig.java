@@ -1,18 +1,28 @@
 package example3;
 
-public class Pig implements Animal {
+public final class Pig implements Animal {
+
+    private int age;
+    private static final int MIN_AGE = 0;
+    private static final int MAX_AGE = 15; // now we have a good choice for dog
+    private static final String AGE_ERR_MSG = "realAge must be a value between "
+            + MIN_AGE + " and " + MAX_AGE;
+
+    public Pig(int realAge) {
+        setAge(realAge);
+    }
 
     public void speak() {
         System.out.println("I'm a Pig amd I OINK");
     }
 
-    // What's wrong with these methods?
     public int getAge() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return age;
     }
 
     public void setAge(int realAge) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (realAge < MIN_AGE || realAge > MAX_AGE) {
+            throw new IllegalArgumentException(AGE_ERR_MSG);
+        }
     }
-    
 }
