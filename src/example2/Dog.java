@@ -10,7 +10,6 @@ package example2;
  */
 public final class Dog extends Animal {
 
-
     private static final int MAX_AGE = 25;
     private static final String AGE_ERR_MSG = "realAge must be a value between "
             + MIN_AGE + " and " + MAX_AGE;
@@ -29,5 +28,6 @@ public final class Dog extends Animal {
         if (realAge < Animal.MIN_AGE || realAge > Dog.MAX_AGE) {
             System.out.println(AGE_ERR_MSG);
         }
+        age = realAge;
     }
 }

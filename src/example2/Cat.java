@@ -20,5 +20,6 @@ public final class Cat extends Animal {
         if( realAge < Animal.MIN_AGE|| realAge > Cat.MAX_AGE){
             System.out.println(AGE_ERR_MSG);
         }
+        age = realAge;
     }
 }

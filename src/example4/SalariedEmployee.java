@@ -1,6 +1,6 @@
 package example4;
 
-public final class SalariedEmployee implements Employee, Athlete {
+public class SalariedEmployee implements Employee, Athlete {
 
     private String firstName;
     private String lastName;
@@ -27,7 +27,7 @@ public final class SalariedEmployee implements Employee, Athlete {
         return firstName;
     }
 
-    public void setFirstName(String value) {
+    public final void setFirstName(String value) {
         if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("first name cannot be null or empty");
         };
@@ -39,7 +39,7 @@ public final class SalariedEmployee implements Employee, Athlete {
         return lastName;
     }
 
-    public void setLastName(String value) {
+    public final void setLastName(String value) {
         if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("last name cannot be null or empty");
         };
@@ -51,7 +51,7 @@ public final class SalariedEmployee implements Employee, Athlete {
         return ssn;
     }
 
-    public void setSsn(String value) {
+    public final void setSsn(String value) {
         if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("ssn cannot be null or empty");
         };
@@ -65,7 +65,7 @@ public final class SalariedEmployee implements Employee, Athlete {
         return annualSalary;
     }
 
-    public void setAnnualSalary(double annualSalary) {
+    public final void setAnnualSalary(double annualSalary) {
         if (annualSalary < MIN_SALARY || annualSalary > MAX_SALARY) {
             throw new IllegalArgumentException("annualSalary must be in range 0 to 500,000");
         };

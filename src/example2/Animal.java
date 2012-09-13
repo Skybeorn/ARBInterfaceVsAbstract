@@ -10,7 +10,7 @@ package example2;
 public abstract class Animal {
 
     public static final int MIN_AGE = 0;
-    private int age;
+    public int age;
 
     public abstract void speak();
 

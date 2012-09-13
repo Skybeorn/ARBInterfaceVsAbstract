@@ -1,6 +1,7 @@
 package example4;
 
 public final class HourlyEmployee implements Employee {
+
     private String firstName;
     private String lastName;
     private String ssn;
@@ -18,8 +19,10 @@ public final class HourlyEmployee implements Employee {
         setBaseHourlyRate(baseHourlyRate);
     }
 
-    /** Notice that this method is implemented differently than SalariedEmployee */
-     public double getAnnualWages() {
+    /**
+     * Notice that this method is implemented differently than SalariedEmployee
+     */
+    public double getAnnualWages() {
         return baseHourlyRate * hoursWorkedPerYear;
     }
 
@@ -28,7 +31,7 @@ public final class HourlyEmployee implements Employee {
     }
 
     public void setFirstName(String value) {
-        if(value == null || value.length() == 0) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("first name cannot be null or empty");
         };
 
@@ -40,9 +43,9 @@ public final class HourlyEmployee implements Employee {
     }
 
     public void setLastName(String value) {
-        if(value == null || value.length() == 0) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("last name cannot be null or empty");
-        };
+        }
 
         lastName = value;
     }
@@ -51,19 +54,18 @@ public final class HourlyEmployee implements Employee {
         return ssn;
     }
 
-    public void setSsn(String value) {
-        if(value == null || value.length() == 0) {
+    public final void setSsn(String value) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("ssn cannot be null or empty");
-        };
+        }
 
         ssn = value;
     }
 
     public void setHoursWorkedPerYear(double hoursWorkedPerYear) {
-        if(hoursWorkedPerYear < MIN_HOURS || hoursWorkedPerYear > MAX_HOURS) {
+        if (hoursWorkedPerYear < MIN_HOURS || hoursWorkedPerYear > MAX_HOURS) {
             throw new IllegalArgumentException("hoursWorkedPerYear must be in range 0 to 2500");
-        };
-
+        }
         this.hoursWorkedPerYear = hoursWorkedPerYear;
     }
 
@@ -71,10 +73,10 @@ public final class HourlyEmployee implements Employee {
         return hoursWorkedPerYear;
     }
 
-    public void setBaseHourlyRate(double baseHourlyRate) {
-        if(baseHourlyRate < MIN_RATE || baseHourlyRate > MAX_RATE) {
+    public final void setBaseHourlyRate(double baseHourlyRate) {
+        if (baseHourlyRate < MIN_RATE || baseHourlyRate > MAX_RATE) {
             throw new IllegalArgumentException("baseHourlyRate must be in range 0 to 50");
-        };
+        }
 
         this.baseHourlyRate = baseHourlyRate;
     }
@@ -82,5 +84,4 @@ public final class HourlyEmployee implements Employee {
     public double getBaseHourlyRate() {
         return baseHourlyRate;
     }
-
 }

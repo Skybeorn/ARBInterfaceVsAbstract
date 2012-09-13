@@ -1,6 +1,6 @@
 package example4;
 
-public final class Cat implements Animal, Athlete {
+public class Cat implements Animal, Athlete {
 
     private static final int MIN_AGE = 0;
     private static final int MAX_AGE = 25;
@@ -21,7 +21,7 @@ public final class Cat implements Animal, Athlete {
         return age;
     }
 
-    public void setAge(int realAge) {
+    public final void setAge(int realAge) {
         if (realAge < MIN_AGE || realAge > MAX_AGE) {
             throw new IllegalArgumentException(AGE_ERR_MSG);
         }
