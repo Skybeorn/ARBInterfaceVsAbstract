@@ -1,14 +1,7 @@
 package example4;
 
-/**
- * This is a concrete implementation of the Employee interface contract and
- * the Athlete interface contract. Again, multiple inheritance made possible
- * by the use of interfaces. But what do you notice about the use of Athlete
- * here and elsewhere?
- * 
- * @author jlombardo
- */
-public class SalariedEmployee implements Employee, Athlete {
+public final class SalariedEmployee implements Employee, Athlete {
+
     private String firstName;
     private String lastName;
     private String ssn;
@@ -19,7 +12,6 @@ public class SalariedEmployee implements Employee, Athlete {
     private static final double MIN_BONUS = 0;
     private static final double MAX_BONUS = 100000;
 
-    /** Notice that this constructor is not part of the Interface contract */
     public SalariedEmployee(String firstName, String lastName, String ssn, double annualSalary) {
         setFirstName(firstName);
         setLastName(lastName);
@@ -27,7 +19,6 @@ public class SalariedEmployee implements Employee, Athlete {
         setAnnualSalary(annualSalary);
     }
 
-    /** Notice that this method is implemented differently than HourlyEmployee */
     public double getAnnualWages() {
         return annualSalary + annualBonus;
     }
@@ -37,7 +28,7 @@ public class SalariedEmployee implements Employee, Athlete {
     }
 
     public void setFirstName(String value) {
-        if(value == null || value.length() == 0) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("first name cannot be null or empty");
         };
 
@@ -49,7 +40,7 @@ public class SalariedEmployee implements Employee, Athlete {
     }
 
     public void setLastName(String value) {
-        if(value == null || value.length() == 0) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("last name cannot be null or empty");
         };
 
@@ -61,21 +52,21 @@ public class SalariedEmployee implements Employee, Athlete {
     }
 
     public void setSsn(String value) {
-        if(value == null || value.length() == 0) {
+        if (value == null || value.length() == 0) {
             throw new IllegalArgumentException("ssn cannot be null or empty");
         };
 
         ssn = value;
     }
-
-    //// NOTICE THAT THE METHODS BELOW ARE NOT PART OF THE INTERFACE CONTRACT ////  
-
+    
+    // These methods are specfic to A Salaried Employee. Our own inplementations
+    //allow us to do this.
     public double getAnnualSalary() {
         return annualSalary;
     }
 
     public void setAnnualSalary(double annualSalary) {
-        if(annualSalary < MIN_SALARY || annualSalary > MAX_SALARY) {
+        if (annualSalary < MIN_SALARY || annualSalary > MAX_SALARY) {
             throw new IllegalArgumentException("annualSalary must be in range 0 to 500,000");
         };
 
@@ -87,7 +78,7 @@ public class SalariedEmployee implements Employee, Athlete {
     }
 
     public void setAnnualBonus(double annualBonus) {
-        if(annualBonus < MIN_BONUS || annualBonus > MAX_BONUS) {
+        if (annualBonus < MIN_BONUS || annualBonus > MAX_BONUS) {
             throw new IllegalArgumentException("annualBonus must be in range 0 to 100,000");
         };
 
@@ -97,5 +88,4 @@ public class SalariedEmployee implements Employee, Athlete {
     public void performLongJump() {
         System.out.println("SalariedEmployee jumps 15 feet");
     }
-
 }

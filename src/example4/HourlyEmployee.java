@@ -1,21 +1,16 @@
 package example4;
 
-/**
- * This is a concrete implementation of the Employee interface contract.
- * @author jlombardo
- */
-public class HourlyEmployee implements Employee {
+public final class HourlyEmployee implements Employee {
     private String firstName;
     private String lastName;
     private String ssn;
     private double baseHourlyRate;
-    private double hoursWorkedPerYear = 2020;
+    private double hoursWorkedPerYear = 2080;
     private static final double MIN_RATE = 0;
     private static final double MAX_RATE = 50;
     private static final double MIN_HOURS = 0;
     private static final double MAX_HOURS = 2500;
 
-    /** Notice that this constructor is not part of the Interface contract */
     public HourlyEmployee(String firstName, String lastName, String ssn, double baseHourlyRate) {
         setFirstName(firstName);
         setLastName(lastName);

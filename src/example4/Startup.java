@@ -1,18 +1,11 @@
 package example4;
 
-/**
- *
- * @author jlombardo
- */
 public class Startup {
 
-    /**
-     * @param args the command line arguments not used
-     */
     public static void main(String[] args) {
         
         // Process animals as a group
-        Animal[] animals = { new Dog(), new Cat() };
+        Animal[] animals = { new Dog(10), new Cat(12), new Pig(6) };
         
         // Polymorphism -- This only works for common behaviors (methods)!
         System.out.println("Behaving like animals...");
@@ -34,7 +27,7 @@ public class Startup {
         }
 
         // Now process Athletes as a group (cross class hierarchies)
-        Athlete[] athletes = { new Cat(), (Athlete)employee1 };
+        Athlete[] athletes = { new Cat(6), (Athlete)employee1 };
         System.out.println("\nBehaving like athletes...");
         for(Athlete athlete : athletes) {
             athlete.performLongJump();

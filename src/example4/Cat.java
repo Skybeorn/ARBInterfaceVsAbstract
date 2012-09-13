@@ -1,16 +1,18 @@
 package example4;
 
-/**
- * This is a concrete implementation of the Animal interface contract, plus
- * the Athlete interface contract. Multiple inheritance is only possible with
- * Interfaces.
- * @author jlombardo
- */
-public class Cat implements Animal, Athlete {
+public final class Cat implements Animal, Athlete {
+
+    private static final int MIN_AGE = 0;
+    private static final int MAX_AGE = 25;
+    private static final String AGE_ERR_MSG = "realAge must be a value between "
+            + MIN_AGE + " and " + MAX_AGE;
     private static int lives = 9;
     private int age;
 
-    /** Notice how this method is implemented differently in Dog */
+    public Cat(int age) {
+        setAge(age);
+    }
+
     public void speak() {
         System.out.println("I'm a cat and I MEOW!");
     }
@@ -19,10 +21,9 @@ public class Cat implements Animal, Athlete {
         return age;
     }
 
-    // But we still have to worry about inheriting bad code!
     public void setAge(int realAge) {
-        if(realAge < 0 || realAge > 25) {
-            throw new IllegalArgumentException("Age out of range");
+        if (realAge < MIN_AGE || realAge > MAX_AGE) {
+            throw new IllegalArgumentException(AGE_ERR_MSG);
         }
     }
 
